@@ -14,17 +14,39 @@
             color: #333;
         }
 
+        /* New Header Style */
         header {
-            background-color: #003366; /* Darker Blue */
+            background-color: #003366; /* Dark Blue */
             color: #f9d71c; /* Yellow */
+            padding: 50px 20px;
             text-align: center;
-            padding: 40px 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
             margin: 0;
-            font-size: 48px;
+            font-size: 50px;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #f9d71c; /* Yellow */
+            color: #003366; /* Dark Blue */
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #003366;
+            color: #f9d71c;
         }
 
         .container {
@@ -65,27 +87,6 @@
             margin: 8px 0;
         }
 
-        .cta {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .cta a {
-            background-color: #f9d71c; /* Yellow */
-            color: #003366; /* Dark Blue */
-            text-decoration: none;
-            padding: 15px 30px;
-            font-size: 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .cta a:hover {
-            background-color: #003366;
-            color: #f9d71c;
-        }
-
         footer {
             background-color: #003366; /* Darker Blue */
             color: white;
@@ -98,7 +99,7 @@
             header h1 {
                 font-size: 32px;
             }
-            .cta a {
+            .cta-button {
                 font-size: 18px;
                 padding: 12px 25px;
             }
@@ -107,8 +108,10 @@
 </head>
 <body>
 
+    <!-- Header with updated styling -->
     <header>
         <h1>NGT - NAZIL GENERAL MP3 LITHIUM GREASE</h1>
+        <a href="http://www.ngtdubaillc.com" target="_blank" class="cta-button">Learn More</a>
     </header>
 
     <div class="container">
@@ -131,9 +134,6 @@
             </ul>
         </div>
 
-        <div class="cta">
-            <a href="http://www.ngtdubaillc.com" target="_blank">Learn More About Our Product</a>
-        </div>
     </div>
 
     <footer>
