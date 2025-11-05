@@ -19,6 +19,39 @@
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,fr',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+
+            // Auto-detect browser language
+            const userLang = navigator.language || navigator.userLanguage;
+            if(userLang.startsWith('fr')){
+                setTimeout(() => {
+                    const select = document.querySelector('#google_translate_element select');
+                    if(select) {
+                        select.value = 'fr';
+                        select.dispatchEvent(new Event('change'));
+                    }
+                }, 500);
+            }
+        }
+
+        function toggleTranslate() {
+            var elem = document.getElementById('google_translate_element');
+            if (elem.style.display === 'none' || elem.style.display === '') {
+                elem.style.display = 'inline-block';
+            } else {
+                elem.style.display = 'none';
+            }
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -35,6 +68,7 @@
             text-align: center;
             padding: 40px 20px 60px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+            position: relative;
         }
 
         header img {
@@ -51,17 +85,34 @@
             letter-spacing: 1.5px;
         }
 
-        .cta-button {
-            display: inline-block;
-            margin-top: 25px;
+        /* Buttons Container */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button, .translate-btn {
             padding: 14px 30px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-button {
             background-color: #f4b400;
             color: #2a2a2a;
-            border-radius: 25px;
             text-decoration: none;
-            transition: all 0.3s ease;
         }
 
         .cta-button:hover {
@@ -69,6 +120,22 @@
             color: #f4b400;
             border: 1px solid #f4b400;
             transform: scale(1.05);
+        }
+
+        .translate-btn {
+            background-color: #f4b400;
+            color: #2a2a2a;
+        }
+
+        .translate-btn:hover {
+            background-color: #2a2a2a;
+            color: #f4b400;
+        }
+
+        #google_translate_element {
+            display: none;
+            margin-left: 10px;
+            vertical-align: middle;
         }
 
         .container {
@@ -143,13 +210,21 @@
             header h1 {
                 font-size: 28px;
             }
-            .cta-button {
-                font-size: 16px;
-                padding: 12px 25px;
+            .cta-button, .translate-btn {
+                font-size: 14px;
+                padding: 12px 20px;
+                height: 45px;
             }
             .container {
                 margin: 30px 20px;
                 padding: 20px;
+            }
+            .buttons-container {
+                flex-direction: column;
+            }
+            #google_translate_element {
+                margin-left: 0;
+                margin-top: 8px;
             }
         }
     </style>
@@ -160,7 +235,13 @@
     <header>
         <img src="ngt_logo_hi_res.png" alt="NGT Logo">
         <h1>NGT - NAZIL GENERAL MP3 LITHIUM GREASE</h1>
-        <a href="https://www.ngtdubaillc.com?utm_source=landing_page_LG&utm_medium=qr_code&utm_campaign=LITHIUM_GREASE_NGT_LG" target="_blank" class="cta-button">Learn More</a>
+
+        <!-- Buttons Row -->
+        <div class="buttons-container">
+            <a href="https://www.ngtdubaillc.com?utm_source=landing_page_LG&utm_medium=qr_code&utm_campaign=LITHIUM_GREASE_NGT_LG" target="_blank" class="cta-button">Learn More</a>
+            <button class="translate-btn" onclick="toggleTranslate()">🌐 Translate / Traduire</button>
+            <div id="google_translate_element"></div>
+        </div>
     </header>
 
     <div class="container">
@@ -195,24 +276,6 @@
     <footer>
         <p>&copy; 2025 NGT. All Rights Reserved.</p>
     </footer>
-
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "NGT - NAZIL GENERAL MP3 LITHIUM GREASE",
-      "image": "https://github.com/nzlngt/land-page-grease/raw/main/Generated_Image_September_18_2025_-_7_44PM.png",
-      "description": "High-performance, multi-purpose lithium-based grease. Available in 500g, 1kg, 3kg, and 15kg.",
-      "brand": "NGT",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://www.ngtdubaillc.com?utm_source=landing_page_LG&utm_medium=qr_code&utm_campaign=LITHIUM_GREASE_NGT_LG",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
 
 </body>
 </html>
